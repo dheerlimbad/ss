@@ -8,7 +8,8 @@ export default function Ending({ restart }) {
   const { width, height } = useWindowSize();
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-pink-500 via-fuchsia-600 to-purple-700 relative h-screen overflow-y-auto flex items-center justify-center p-5">
+    <div className="relative h-screen bg-gradient-to-br from-pink-500 via-fuchsia-600 to-purple-700 overflow-hidden flex items-center justify-center p-4">
+
       <Confetti
         width={width}
         height={height}
@@ -19,7 +20,7 @@ export default function Ending({ restart }) {
       <motion.div
         initial={{
           opacity: 0,
-          scale: 0.8,
+          scale: 0.85,
         }}
         animate={{
           opacity: 1,
@@ -28,121 +29,181 @@ export default function Ending({ restart }) {
         className="
         w-full
         max-w-xl
+        h-[92vh]
         rounded-3xl
         bg-[#161b22]
         border
         border-zinc-700
         shadow-2xl
-        p-8
-        text-center
+        p-6
+        flex
+        flex-col
         "
       >
+
         <motion.div
           animate={{
-            y: [0, -10, 0],
-            rotate: [0, 5, -5, 0],
+            y: [0, -8, 0],
+            rotate: [0, 4, -4, 0],
           }}
           transition={{
             repeat: Infinity,
             duration: 2,
           }}
-          className="text-8xl"
+          className="text-7xl text-center"
         >
           👑❤️
         </motion.div>
 
-        <h1 className="text-4xl font-bold text-white mt-8">Princess.exe</h1>
+        <h1 className="text-4xl font-bold text-white text-center mt-4">
+          Princess.exe
+        </h1>
 
-        <h2 className="text-pink-400 text-2xl mt-3 font-semibold">
+        <h2 className="text-pink-400 text-xl font-semibold text-center mt-2">
           Successfully Deployed
         </h2>
 
-        <div className="mt-10 rounded-2xl bg-zinc-900 border border-zinc-700 p-6">
+        <div
+          className="
+          mt-6
+          flex-1
+          rounded-2xl
+          bg-zinc-900
+          border
+          border-zinc-700
+          p-5
+          overflow-y-auto
+          "
+        >
+
           <div className="font-mono text-green-400 text-left space-y-3">
+
             <p>✔ All Bugs Fixed</p>
 
             <p>✔ 120 Huggys Reserved</p>
 
-            <p>✔ Princess right dimple Installed</p>
+            <p>✔ Princess Right Dimple Installed</p>
+
           </div>
+
           <p className="mt-8 text-zinc-300 leading-8 text-center">
+
             I know you're mad at me...
-            <br />
-            <br />
+            <br /><br />
+
             Maybe I made a mistake.
+
             <br />
-            Instead of sending lots of texts and irritating you even more, I
-            thought I'd make something that would hopefully make you smile.
-            <br />
-            <br />
-            <span className="text-pink-400 font-bold">Arz kiya hai... 🎤</span>
-            <br />
-            <br />
+
+            Instead of sending lots of texts and irritating you even more,
+            I thought I'd make something that would hopefully make you smile.
+
+            <br /><br />
+
+            <span className="text-pink-400 font-bold">
+              Arz kiya hai... 🎤
+            </span>
+
+            <br /><br />
+
             <span className="text-yellow-300 font-semibold">
               Waah Waah toh bolo... 😌
             </span>
-            <br />
-            <br />
-            Arz kiya hai...
-            <br />
-            <br />
-            <span className="italic">
-              Main tod leta agar tu gulaab hoti...
-              <br />
-              Main tod leta agar tu gulaab hoti...
-              <br />
-              <br />
-              Main padh leta agar tu kitaab hoti...
-              <br />
-              <br />
-              Aur tujhe pata hai ki main nasha nahi karta...
-              <br />
-              Aurrrrr...
-              <br />
-              <br />
-              Tujhe pata hai ki main nasha nahi karta...
-              <br />
-              Magar main pee leta...
-              <br />
-              Agar tu sharaab hoti. ❤️
-            </span>
-            <br />
-            <br />
-            Ab toh gussa thoda kam hua...?
-          </p>
-        </div>
 
-        <motion.p
-          initial={{
-            opacity: 0,
-          }}
-          animate={{
-            opacity: 1,
-          }}
-          transition={{
-            delay: 1,
-          }}
-          className="mt-8 text-zinc-300 leading-8"
-        >
-          Congratulations Princess 💖
-          <br />
-          You completed every mission.
-          <br />
-          Dheeru officially owes you
-          <span className="text-pink-400 font-bold"> 120 Huggys </span>
-          forever.
-        </motion.p>
+            <br /><br />
+
+            Arz kiya hai...
+
+            <br /><br />
+
+            <span className="italic">
+
+              Main tod leta agar tu gulaab hoti...
+              <br />
+
+              Main tod leta agar tu gulaab hoti...
+
+              <br /><br />
+
+              Main padh leta agar tu kitaab hoti...
+
+              <br /><br />
+
+              Aur tujhe pata hai ki main nasha nahi karta...
+
+              <br />
+
+              Aurrrrr....
+
+              <br /><br />
+
+              Tujhe pata hai ki main nasha nahi karta...
+
+              <br />
+
+              Magar main pee leta...
+
+              <br />
+
+              Agar tu sharaab hoti. 
+
+            </span>
+
+            <br /><br />
+
+            Ab toh gussa thoda kam hua...? 
+
+            <br /><br />
+                        <motion.div
+              initial={{
+                opacity: 0,
+              }}
+              animate={{
+                opacity: 1,
+              }}
+              transition={{
+                delay: 1,
+              }}
+              className="mt-4"
+            >
+
+              <p className="text-zinc-300 leading-8">
+
+                Congratulations Princess 💖
+
+                <br /><br />
+
+                You completed every mission.
+
+                <br />
+
+                Dheeru officially owes you
+
+                <span className="text-pink-400 font-bold">
+                  {" "}120 Huggys{" "}
+                </span>
+
+                forever.
+
+              </p>
+
+            </motion.div>
+
+          </p>
+
+        </div>
 
         <motion.button
           whileHover={{
-            scale: 1.05,
+            scale: 1.03,
           }}
           whileTap={{
-            scale: 0.95,
+            scale: 0.96,
           }}
           onClick={restart}
           className="
-          mt-10
+          mt-5
+          shrink-0
           w-full
           py-4
           rounded-xl
@@ -151,11 +212,14 @@ export default function Ending({ restart }) {
           text-white
           font-bold
           text-lg
+          shadow-xl
           "
         >
           🔄 Play Again
         </motion.button>
+
       </motion.div>
+
     </div>
   );
 }
