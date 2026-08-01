@@ -52,26 +52,33 @@ export default function BugArena({
     [fixed, total]
   );
 
-  function squash(id) {
-    if ("vibrate" in navigator) {
-      navigator.vibrate(35);
-    }
-
-    setBugs((old) => old.filter((bug) => bug.id !== id));
-
-    onBugSquashed();
+function squash(id) {
+  if ("vibrate" in navigator) {
+    navigator.vibrate(35);
   }
 
-  useEffect(() => {
-  if (bugs.length !== 0 || completed) return;
-    setCompleted(true);
+  setBugs((old) => {
+    const remaining = old.filter((bug) => bug.id !== id);
 
-    const timer = setTimeout(() => {
-      onCompleted();
-    }, 2200);
+    onBugSquashed();
 
-    return () => clearTimeout(timer);
-  }, [fixed, total, completed, onCompleted]);
+    return remaining;
+  });
+}
+useEffect(() => {
+  if (bugs.length !== 0) return;
+
+  setCompleted(true);
+
+  const timer = setTimeout(() => {
+    onCompleted();
+  }, 1800);
+
+  return () => clearTimeout(timer);
+
+}, [bugs, onCompleted]);
+
+  
 
   return (
     <div className="absolute inset-0 mt-40 overflow-hidden">

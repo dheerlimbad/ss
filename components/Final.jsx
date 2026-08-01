@@ -20,6 +20,9 @@ const SCREENS = {
 };
 
 export default function Final() {
+   function next() {
+  setScreen((prev) => prev + 1);
+}
   const [screen, setScreen] = useState(SCREENS.LOADING);
 
   // This forces every component to remount on replay

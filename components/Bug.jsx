@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useAudio } from "./AudioProvider";
 
 export default function Bug({
   id,
@@ -9,19 +10,24 @@ export default function Bug({
   onSquash,
 }) {
   const [alive, setAlive] = useState(true);
+  const { playPop } = useAudio();
 
-  function handleClick() {
+  async function handleClick() {
     if (!alive) return;
+
+    setAlive(false);
+
+    try {
+      await playPop();
+    } catch {}
 
     if ("vibrate" in navigator) {
       navigator.vibrate(30);
     }
 
-    setAlive(false);
-
     setTimeout(() => {
       onSquash(id);
-    }, 300);
+    }, 250);
   }
 
   return (
@@ -63,7 +69,7 @@ export default function Bug({
                   }}
                   transition={{
                     repeat: Infinity,
-                    duration: .8,
+                    duration: 0.8,
                   }}
                   className="text-3xl"
                 >
@@ -71,7 +77,6 @@ export default function Bug({
                 </motion.div>
 
                 <div>
-
                   <h3 className="font-bold text-white text-sm">
                     {title}
                   </h3>
@@ -79,7 +84,6 @@ export default function Bug({
                   <p className="text-xs text-zinc-400 mt-1">
                     Tap to squash
                   </p>
-
                 </div>
 
               </div>
@@ -93,7 +97,7 @@ export default function Bug({
               initial={{
                 opacity: 1,
                 y: 0,
-                scale: .7,
+                scale: 0.7,
               }}
               animate={{
                 opacity: 0,
@@ -101,14 +105,13 @@ export default function Bug({
                 scale: 1,
               }}
               transition={{
-                duration: .5,
+                duration: 0.5,
               }}
               className="absolute left-1/2 -translate-x-1/2 -top-3 font-bold text-green-400 whitespace-nowrap pointer-events-none"
             >
               +10 XP
             </motion.div>
           )}
-
         </motion.div>
       )}
     </AnimatePresence>

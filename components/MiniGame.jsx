@@ -87,12 +87,11 @@ export default function MiniGame({ next }) {
 
       </AnimatePresence>
 
-      <BugArena
-        total={TOTAL_BUGS}
-        fixed={fixed}
-        onBugSquashed={handleBugSquashed}
-        onCompleted={next}
-      />
+    <BugArena
+  total={TOTAL_BUGS}
+  onBugSquashed={handleBugSquashed}
+  onCompleted={next}
+/>
 
     </motion.div>
   );
