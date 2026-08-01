@@ -3,10 +3,9 @@
 import { useState } from "react";
 
 import Intro from "@/components/Intro";
-import BugReport from "@/components/BugReport";
-import Final from "@/components/Final";
 import MiniGame from "@/components/MiniGame";
-import ProgressBar from "@/components/ProgressBar";
+import Terminal from "@/components/Terminal";
+import Ending from "@/components/Ending";
 
 export default function Home(){
 
