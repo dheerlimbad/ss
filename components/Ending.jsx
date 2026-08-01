@@ -8,7 +8,7 @@ export default function Ending({ restart }) {
   const { width, height } = useWindowSize();
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-pink-500 via-fuchsia-600 to-purple-700 overflow-hidden flex items-center justify-center p-5">
+    <div className="relative min-h-screen bg-gradient-to-br from-pink-500 via-fuchsia-600 to-purple-700 relative h-screen overflow-y-auto flex items-center justify-center p-5">
       <Confetti
         width={width}
         height={height}
