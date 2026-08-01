@@ -1,74 +1,159 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
-const lines = [
-  "PS C:\\Princess> npm run smile",
+const LINES = [
+  "> npm install princess.exe",
   "",
-  "> Initializing...",
-  "> Loading princess.exe",
-  "> Fixing bugs...",
-  "> Build Successful ✔",
+  "✔ Loading Hug Engine...",
+  "✔ Loading Princess Module...",
+  "✔ Installing Love Packages...",
+  "✔ Fixing Remaining Bugs...",
+  "✔ Building Project...",
   "",
-  "Smile Probability : 87%",
+  "Compiled Successfully ✔",
   "",
-  "Opening Message..."
+  "Launching Princess.exe...",
+  "",
+  "Mission Complete ❤️",
 ];
 
 export default function Terminal({ next }) {
+  const [lines, setLines] = useState([]);
+  const [current, setCurrent] = useState("");
+  const [cursor, setCursor] = useState(true);
 
-  const [visible, setVisible] = useState([]);
+  const lineIndex = useRef(0);
+  const charIndex = useRef(0);
 
   useEffect(() => {
+    const blink = setInterval(() => {
+      setCursor((v) => !v);
+    }, 500);
 
-    let index = 0;
+    return () => clearInterval(blink);
+  }, []);
 
+  useEffect(() => {
     const timer = setInterval(() => {
-
-      setVisible((old) => [...old, lines[index]]);
-
-      index++;
-
-      if (index === lines.length) {
-
+      if (lineIndex.current >= LINES.length) {
         clearInterval(timer);
 
-        setTimeout(next,1500);
+        setTimeout(() => {
+          next();
+        }, 1800);
 
+        return;
       }
 
-    },700);
+      const line = LINES[lineIndex.current];
 
-    return ()=>clearInterval(timer);
+      if (charIndex.current < line.length) {
+        setCurrent((prev) => prev + line[charIndex.current]);
+        charIndex.current++;
+      } else {
+        setLines((prev) => [...prev, current]);
 
-  },[]);
+        setCurrent("");
+
+        charIndex.current = 0;
+
+        lineIndex.current++;
+      }
+    }, 35);
+
+    return () => clearInterval(timer);
+  }, [current, next]);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth",
+    });
+  }, [lines, current]);
 
   return (
+    <motion.div
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+      }}
+      className="
+      min-h-screen
+      bg-[#0d1117]
+      flex
+      items-center
+      justify-center
+      p-5
+      "
+    >
+      <div
+        className="
+        w-full
+        max-w-5xl
+        rounded-2xl
+        overflow-hidden
+        border
+        border-zinc-700
+        shadow-2xl
+        "
+      >
+        <div className="bg-[#161b22] px-4 py-3 flex items-center gap-2 border-b border-zinc-700">
 
-<div className="card">
+          <div className="w-3 h-3 rounded-full bg-red-500" />
 
-<h2 className="text-2xl font-bold mb-6">
+          <div className="w-3 h-3 rounded-full bg-yellow-500" />
 
-Terminal
+          <div className="w-3 h-3 rounded-full bg-green-500" />
 
-</h2>
+          <span className="ml-4 text-zinc-400 text-sm">
+            terminal
+          </span>
 
-<div className="bg-black rounded-xl p-5 font-mono text-green-400 min-h-[350px]">
+        </div>
 
-{visible.map((line,index)=>(
+        <div
+          className="
+          bg-black
+          min-h-[500px]
+          p-6
+          font-mono
+          text-green-400
+          text-sm
+          md:text-base
+          "
+        >
+          {lines.map((line, index) => (
+            <motion.p
+              key={index}
+              initial={{
+                opacity: 0,
+              }}
+              animate={{
+                opacity: 1,
+              }}
+              className="mb-2 whitespace-pre-wrap"
+            >
+              {line}
+            </motion.p>
+          ))}
 
-<p key={index} className="mb-2">
+          <p className="whitespace-pre-wrap">
+            {current}
+            <span
+              className={`${
+                cursor ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              █
+            </span>
+          </p>
 
-{line}
-
-</p>
-
-))}
-
-</div>
-
-</div>
-
+        </div>
+      </div>
+    </motion.div>
   );
-
 }

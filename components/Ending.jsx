@@ -1,82 +1,132 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Confetti from "react-confetti";
-import { useEffect, useState } from "react";
+import { useWindowSize } from "react-use";
 
-export default function Ending(){
+export default function Ending({ restart }) {
+  const { width, height } = useWindowSize();
 
-const [show,setShow]=useState(true);
+  return (
+    <div className="relative min-h-screen bg-gradient-to-br from-pink-500 via-fuchsia-600 to-purple-700 overflow-hidden flex items-center justify-center p-5">
 
-useEffect(()=>{
+      <Confetti
+        width={width}
+        height={height}
+        recycle={false}
+        numberOfPieces={350}
+      />
 
-setTimeout(()=>{
+      <motion.div
+        initial={{
+          opacity: 0,
+          scale: 0.8,
+        }}
+        animate={{
+          opacity: 1,
+          scale: 1,
+        }}
+        className="
+        w-full
+        max-w-xl
+        rounded-3xl
+        bg-[#161b22]
+        border
+        border-zinc-700
+        shadow-2xl
+        p-8
+        text-center
+        "
+      >
 
-setShow(false);
+        <motion.div
+          animate={{
+            y: [0, -10, 0],
+            rotate: [0, 5, -5, 0],
+          }}
+          transition={{
+            repeat: Infinity,
+            duration: 2,
+          }}
+          className="text-8xl"
+        >
+          👑❤️
+        </motion.div>
 
-},6000);
+        <h1 className="text-4xl font-bold text-white mt-8">
+          Princess.exe
+        </h1>
 
-},[]);
+        <h2 className="text-pink-400 text-2xl mt-3 font-semibold">
+          Successfully Deployed
+        </h2>
 
-return(
+        <div className="mt-10 rounded-2xl bg-zinc-900 border border-zinc-700 p-6">
 
-<div className="card relative overflow-hidden">
+          <div className="font-mono text-green-400 text-left space-y-3">
 
-{show && <Confetti />}
+            <p>✔ All Bugs Fixed</p>
 
-<h1 className="text-4xl font-bold">
+            <p>✔ 120 Huggys Reserved</p>
 
-Princess 👑
+            <p>✔ Princess Happiness Installed</p>
 
-</h1>
+            <p>✔ Love Engine Running</p>
 
-<p className="mt-8 leading-9 text-zinc-300">
+            <p>✔ Forever.exe Started</p>
 
-I know I messed up.
+          </div>
 
-<br/><br/>
+        </div>
 
-I also know making this game
-doesn't magically fix anything.
+        <motion.p
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+          }}
+          transition={{
+            delay: 1,
+          }}
+          className="mt-8 text-zinc-300 leading-8"
+        >
+          Congratulations Princess 💖
+          <br />
+          You completed every mission.
+          <br />
+          Dheeru officially owes you
+          <span className="text-pink-400 font-bold">
+            {" "}120 Huggys{" "}
+          </span>
+          forever.
+        </motion.p>
 
-<br/><br/>
+        <motion.button
+          whileHover={{
+            scale: 1.05,
+          }}
+          whileTap={{
+            scale: 0.95,
+          }}
+          onClick={restart}
+          className="
+          mt-10
+          w-full
+          py-4
+          rounded-xl
+          bg-pink-500
+          hover:bg-pink-400
+          text-white
+          font-bold
+          text-lg
+          "
+        >
+          🔄 Play Again
+        </motion.button>
 
-I just thought...
+      </motion.div>
 
-instead of sending another long paragraph...
-
-I'd spend that time building something.
-
-<br/><br/>
-
-If this made you smile,
-
-even just a little,
-
-I'd call that
-
-a successful deployment.
-
-🙂
-
-<br/><br/>
-
-— Dheeru
-
-</p>
-
-<div className="mt-10">
-
-<button
-className="bg-green-500 text-black px-8 py-3 rounded-xl font-bold">
-
-Mission Complete ✅
-
-</button>
-
-</div>
-
-</div>
-
-)
-
+    </div>
+  );
 }

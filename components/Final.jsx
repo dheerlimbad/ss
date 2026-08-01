@@ -1,69 +1,112 @@
 "use client";
 
-export default function Final(){
+import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
 
-return(
+import LoadingScreen from "./LoadingScreen";
+import Intro from "./Intro";
+import MiniGame from "./MiniGame";
+import HugGame from "./HugGame";
+import Terminal from "./Terminal";
+import Ending from "./Ending";
 
-<div className="card">
+const SCREENS = {
+  LOADING: 0,
+  INTRO: 1,
+  BUGS: 2,
+  HUG: 3,
+  TERMINAL: 4,
+  ENDING: 5,
+};
 
-<div className="title">
+export default function Final() {
+  const [screen, setScreen] = useState(SCREENS.LOADING);
 
-Patch Complete
+  // This forces every component to remount on replay
+  const [gameKey, setGameKey] = useState(Date.now());
 
-</div>
+  function next() {
+    setScreen((prev) => prev + 1);
+  }
 
-<p className="subtitle mt-8">
+  function restart() {
+    setGameKey(Date.now());
+    setScreen(SCREENS.LOADING);
+  }
 
-Hey.
+  return (
+    <div
+      key={gameKey}
+      className="w-full min-h-screen overflow-hidden bg-[#0d1117] text-white"
+    >
+      <AnimatePresence mode="wait">
 
-<br/><br/>
+        {screen === SCREENS.LOADING && (
+          <motion.div
+            key="loading"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <LoadingScreen next={next} />
+          </motion.div>
+        )}
 
-I know I repeated the same mistake.
+        {screen === SCREENS.INTRO && (
+          <motion.div
+            key="intro"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <Intro next={next} />
+          </motion.div>
+        )}
 
-Not once.
+        {screen === SCREENS.BUGS && (
+          <motion.div
+            key="bugs"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <MiniGame next={next} />
+          </motion.div>
+        )}
 
-Twice.
+        {screen === SCREENS.HUG && (
+          <motion.div
+            key="hug"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <HugGame next={next} />
+          </motion.div>
+        )}
 
-<br/><br/>
+        {screen === SCREENS.TERMINAL && (
+          <motion.div
+            key="terminal"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <Terminal next={next} />
+          </motion.div>
+        )}
 
-This page isn't here to magically fix that.
+        {screen === SCREENS.ENDING && (
+          <motion.div
+            key="ending"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            <Ending restart={restart} />
+          </motion.div>
+        )}
 
-It's just my way of saying
-
-I understand why you're upset.
-
-<br/><br/>
-
-The next update won't be words.
-
-It'll be actions.
-
-</p>
-
-<div className="mt-10 border-t border-zinc-700 pt-6 text-zinc-500">
-
-Version 2.1
-
-<br/>
-
-✔ Less Ego
-
-<br/>
-
-✔ Better Listener
-
-<br/>
-
-✔ Think Before Acting
-
-<br/>
-
-✔ Fewer Bugs
-
-</div>
-
-</div>
-
-)
-
+      </AnimatePresence>
+    </div>
+  );
 }
