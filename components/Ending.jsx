@@ -69,11 +69,7 @@ export default function Ending({ restart }) {
 
             <p>✔ 120 Huggys Reserved</p>
 
-            <p>✔ Princess Happiness Installed</p>
-
-            <p>✔ Love Engine Running</p>
-
-            <p>✔ Forever.exe Started</p>
+            <p>✔ Princess right dimple Installed</p>
 
           </div>
 

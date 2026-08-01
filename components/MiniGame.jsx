@@ -7,7 +7,7 @@ import ProgressBar from "./ProgressBar";
 import BugReport from "./BugReport";
 import BugArena from "./BugArena";
 
-const TOTAL_BUGS = 18;
+const TOTAL_BUGS = 10;
 
 export default function MiniGame({ next }) {
   const [fixed, setFixed] = useState(0);

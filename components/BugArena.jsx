@@ -8,19 +8,11 @@ const BUGS = [
   "RepeatBug_v2",
   "LazyReply.js",
   "NullPointer",
-  "MoodSwing.ts",
   "InfiniteLoop",
   "SleepMode.dll",
-  "GhostTyping.css",
   "BrokenPromise",
   "MemoryLeak",
-  "MissingSemicolon",
   "CoffeeOverflow",
-  "SyntaxMonster",
-  "UndefinedLove",
-  "404Feelings",
-  "CommitLater",
-  "MergeConflict",
   "StackOverflow",
   "Princess.exe",
 ];
@@ -71,8 +63,7 @@ export default function BugArena({
   }
 
   useEffect(() => {
-    if (fixed !== total || completed) return;
-
+  if (bugs.length !== 0 || completed) return;
     setCompleted(true);
 
     const timer = setTimeout(() => {
