@@ -5,16 +5,16 @@ import { AnimatePresence, motion } from "framer-motion";
 import Bug from "./Bug";
 
 const BUGS = [
-  "RepeatBug_v2",
-  "LazyReply.js",
-  "NullPointer",
-  "InfiniteLoop",
-  "SleepMode.dll",
-  "BrokenPromise",
-  "MemoryLeak",
-  "CoffeeOverflow",
-  "StackOverflow",
-  "Princess.exe",
+ "LateReply",
+ "NoUpdates",
+ "NoMeeting",
+  "SeenZoneError",
+  "Attention404",
+  "HuggysMissing.dll",
+  "KissysMissing",
+  "Overthinking.js",
+  "No enna bale claim",
+  "NoLove recieved",
 ];
 
 const random = () => ({

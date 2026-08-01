@@ -8,7 +8,7 @@ const LINES = [
   "",
   "✔ Loading Hug Engine...",
   "✔ Loading Princess Module...",
-  "✔ Installing Love Packages...",
+  "✔ Installing  Packages...",
   "✔ Fixing Remaining Bugs...",
   "✔ Building Project...",
   "",

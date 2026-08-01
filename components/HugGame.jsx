@@ -110,20 +110,19 @@ export default function HugGame({ next }) {
         />
       )}
 
-      <div className="w-full max-w-md rounded-3xl bg-[#161b22] border border-zinc-700 shadow-2xl p-6">
-
+<div className="w-full max-w-md rounded-3xl bg-[#161b22] border border-zinc-700 shadow-2xl px-8 py-8">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-3xl font-bold text-center text-white"
         >
-          🤗 Hug Calculator
+          🤗 Huggys Calculator
         </motion.h1>
 
         <p className="text-center text-zinc-400 mt-3">
-          Princess 👑
+          Princess 
           <br />
-          How many Huggys does Dheeru owe you today?
+          How many Huggys does Dheeru owe you ?
         </p>
 
         <AnimatePresence>
@@ -134,8 +133,7 @@ export default function HugGame({ next }) {
               initial={{ opacity: 0, y: -20, scale: .8 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20 }}
-              className="fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-white text-black px-6 py-3 rounded-full font-bold shadow-xl"
-            >
+className="fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-white text-black px-10 py-4 rounded-2xl font-bold shadow-2xl max-w-[90%] text-center"            >
               {toast}
             </motion.div>
 

@@ -57,7 +57,7 @@ async function start() {
 
             <p>{">"} Loading Memories...</p>
             <p>{">"} Loading Hugs...</p>
-            <p>{">"} Debugging Princess.exe...</p>
+            <p>{">"} Debugging Princess Mood.exe...</p>
             <p>{">"} Preparing Surprise...</p>
             <p>{">"} Ready ✔</p>
 
@@ -84,8 +84,7 @@ async function start() {
           mt-10
           w-full
           rounded-xl
-          bg-pink-500
-          hover:bg-pink-400
+          bg-green-500
           py-4
           text-lg
           font-bold
@@ -93,7 +92,7 @@ async function start() {
           shadow-xl
           "
         >
-          ▶ Run Project
+          ▶ Lessgooo
         </motion.button>
 
       </motion.div>

@@ -9,7 +9,6 @@ export default function Ending({ restart }) {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-pink-500 via-fuchsia-600 to-purple-700 overflow-hidden flex items-center justify-center p-5">
-
       <Confetti
         width={width}
         height={height}
@@ -38,7 +37,6 @@ export default function Ending({ restart }) {
         text-center
         "
       >
-
         <motion.div
           animate={{
             y: [0, -10, 0],
@@ -53,26 +51,65 @@ export default function Ending({ restart }) {
           👑❤️
         </motion.div>
 
-        <h1 className="text-4xl font-bold text-white mt-8">
-          Princess.exe
-        </h1>
+        <h1 className="text-4xl font-bold text-white mt-8">Princess.exe</h1>
 
         <h2 className="text-pink-400 text-2xl mt-3 font-semibold">
           Successfully Deployed
         </h2>
 
         <div className="mt-10 rounded-2xl bg-zinc-900 border border-zinc-700 p-6">
-
           <div className="font-mono text-green-400 text-left space-y-3">
-
             <p>✔ All Bugs Fixed</p>
 
             <p>✔ 120 Huggys Reserved</p>
 
             <p>✔ Princess right dimple Installed</p>
-
           </div>
-
+          <p className="mt-8 text-zinc-300 leading-8 text-center">
+            I know you're mad at me...
+            <br />
+            <br />
+            Maybe I made a mistake.
+            <br />
+            Instead of sending lots of texts and irritating you even more, I
+            thought I'd make something that would hopefully make you smile.
+            <br />
+            <br />
+            <span className="text-pink-400 font-bold">Arz kiya hai... 🎤</span>
+            <br />
+            <br />
+            <span className="text-yellow-300 font-semibold">
+              Waah Waah toh bolo... 😌
+            </span>
+            <br />
+            <br />
+            Arz kiya hai...
+            <br />
+            <br />
+            <span className="italic">
+              Main tod leta agar tu gulaab hoti...
+              <br />
+              Main tod leta agar tu gulaab hoti...
+              <br />
+              <br />
+              Main padh leta agar tu kitaab hoti...
+              <br />
+              <br />
+              Aur tujhe pata hai ki main nasha nahi karta...
+              <br />
+              Aurrrrr...
+              <br />
+              <br />
+              Tujhe pata hai ki main nasha nahi karta...
+              <br />
+              Magar main pee leta...
+              <br />
+              Agar tu sharaab hoti. ❤️
+            </span>
+            <br />
+            <br />
+            Ab toh gussa thoda kam hua...?
+          </p>
         </div>
 
         <motion.p
@@ -92,9 +129,7 @@ export default function Ending({ restart }) {
           You completed every mission.
           <br />
           Dheeru officially owes you
-          <span className="text-pink-400 font-bold">
-            {" "}120 Huggys{" "}
-          </span>
+          <span className="text-pink-400 font-bold"> 120 Huggys </span>
           forever.
         </motion.p>
 
@@ -120,9 +155,7 @@ export default function Ending({ restart }) {
         >
           🔄 Play Again
         </motion.button>
-
       </motion.div>
-
     </div>
   );
 }
